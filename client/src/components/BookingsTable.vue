@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-wrapper">
     <table>
       <thead>
         <th>Name</th>
@@ -28,5 +28,7 @@ export default {
 </script>
 
 <style>
-
+  .table-wrapper {
+    display: inline-block;
+  }
 </style>
