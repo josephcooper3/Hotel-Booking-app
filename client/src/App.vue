@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>Hotel Bookings</h1>
+    <booking-form></booking-form>
   </div>
 </template>
 
