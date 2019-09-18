@@ -2,7 +2,7 @@
   <tr>
     <td>{{booking.name}}</td>
     <td>{{booking.email}}</td>
-    <td>{{booking.checkedIn}}</td>
+    <td>{{checkedInText}}</td>
     <td>
       <button v-on:click="deleteBooking">Delete</button>
     </td>
@@ -25,10 +25,15 @@ export default {
       .then(() => eventBus.$emit('booking-deleted'))
     },
     toggleCheckedIn(booking) {
-      const payload = this.booking;
+      const payload = {...this.booking};
       payload.checkedIn = !booking.checkedIn;
       BookingService.updateBooking(payload)
       .then(() => eventBus.$emit('booking-updated'))
+    }
+  }, 
+  computed: {
+    checkedInText() {
+      return this.booking.checkedIn ? "Yes" : "No"
     }
   }
 }
