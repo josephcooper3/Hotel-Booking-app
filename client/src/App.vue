@@ -5,11 +5,30 @@
 </template>
 
 <script>
+import BookingForm from './components/BookingForm'
+import BookingsList from './components/BookingsList'
+import BookingService from './services/BookingService'
+import { eventBus } from './main'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      bookings: []
+    }
+  },
   components: {
-
+   'booking-form': BookingForm,
+   'bookings-list': BookingsList
+  },
+  mounted(){
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      BookingService.getBookings()
+      .then(bookings => this.bookings = bookings)
+    }
   }
 }
 </script>
