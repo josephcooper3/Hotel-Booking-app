@@ -17,7 +17,18 @@ const createRouter = function (collection) {
   })
 
   //CREATE
-
+  router.post('/', (req, res) => {
+    const newData = req.body;
+    collection.insertOne(newData)
+    .then((result) => {
+      res.json(result.ops[0])
+    })
+    .catch((err) => {
+      console.error(error);
+      res.status(500);
+      res.json({status: 500, error: err});
+    })
+  })
 
   //DELETE
 
