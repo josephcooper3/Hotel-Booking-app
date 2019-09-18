@@ -5,7 +5,8 @@
         <th>Name</th>
         <th>Email Address</th>
         <th>Checked In?</th>
-        <th>Delete</th>
+        <th></th>
+        <th></th>
       </thead>
       <tbody>
         <table-item v-for="(booking, index) in bookings" :booking="booking" :key="index"/>

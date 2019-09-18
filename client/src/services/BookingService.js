@@ -19,6 +19,17 @@ deleteBooking(id){
   return fetch(baseURL + id, {
     method: "DELETE"
   })
-} 
+},
+
+updateBooking(payload){
+  const id = payload._id;
+  delete payload._id;
+  return fetch(baseURL + id, {
+    method: "PUT",
+    body: JSON.stringify(payload),
+    headers: {'Content-Type': 'application/json'}
+  })
+  .then(res => res.json())
+}
 
 }

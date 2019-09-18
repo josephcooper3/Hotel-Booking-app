@@ -6,6 +6,9 @@
     <td>
       <button v-on:click="deleteBooking">Delete</button>
     </td>
+    <td>
+      <button v-on:click="toggleCheckedIn(booking)">Change Check-in Status</button>
+    </td>
   </tr>
 </template>
 
@@ -17,9 +20,15 @@ export default {
   name: "table-item",
   props: ["booking"],
   methods: {
-    deleteBooking(booking) {
+    deleteBooking() {
       BookingService.deleteBooking(this.booking._id)
-      .then(() => eventBus.$emit('booking-deleted', this.booking._id))
+      .then(() => eventBus.$emit('booking-deleted'))
+    },
+    toggleCheckedIn(booking) {
+      const payload = this.booking;
+      payload.checkedIn = !booking.checkedIn;
+      BookingService.updateBooking(payload)
+      .then(() => eventBus.$emit('booking-updated'))
     }
   }
 }

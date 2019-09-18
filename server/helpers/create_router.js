@@ -10,7 +10,7 @@ const createRouter = function (collection) {
     collection.find().toArray()
     .then((docs) => res.json(docs))
     .catch((err) => {
-      console.error(error);
+      console.error(err);
       res.status(500);
       res.json({status: 500, error: err});
     })
@@ -24,7 +24,7 @@ const createRouter = function (collection) {
       res.json(result.ops[0])
     })
     .catch((err) => {
-      console.error(error);
+      console.error(err);
       res.status(500);
       res.json({status: 500, error: err});
     })
@@ -38,7 +38,7 @@ const createRouter = function (collection) {
       res.json(result)
     })
     .catch((err) => {
-      console.error(error);
+      console.error(err);
       res.status(500);
       res.json({status: 500, error: err});
     })
@@ -57,7 +57,7 @@ const createRouter = function (collection) {
       res.json(result.value)
     })
     .catch((err) => {
-      console.error(error);
+      console.error(err);
       res.status(500);
       res.json({status: 500, error: err});
     })

@@ -31,6 +31,9 @@ export default {
     eventBus.$on('booking-deleted', () => {
       this.fetchData()
     });
+    eventBus.$on('booking-updated', () => {
+      this.fetchData()
+    });
   },
   methods: {
     fetchData() {
