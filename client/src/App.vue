@@ -24,13 +24,19 @@ export default {
    'bookings-table': BookingsTable
   },
   mounted(){
-    this.fetchData()
+    this.fetchData();
+    eventBus.$on('booking-added', () => {
+      this.fetchData()
+    });
+    eventBus.$on('booking-deleted', () => {
+      this.fetchData()
+    });
   },
   methods: {
     fetchData() {
       BookingService.getBookings()
-      .then(bookings => this.bookings = bookings)
-    }
+      .then(bookings => this.bookings = bookings);
+    },
   }
 }
 </script>
