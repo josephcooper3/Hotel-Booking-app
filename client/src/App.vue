@@ -2,12 +2,13 @@
   <div id="app">
     <h1>Hotel Bookings</h1>
     <booking-form></booking-form>
+    <bookings-table :bookings="bookings"></bookings-table>
   </div>
 </template>
 
 <script>
 import BookingForm from './components/BookingForm'
-import BookingsList from './components/BookingsList'
+import BookingsTable from './components/BookingsTable'
 import BookingService from './services/BookingService'
 import { eventBus } from './main'
 
@@ -20,7 +21,7 @@ export default {
   },
   components: {
    'booking-form': BookingForm,
-   'bookings-list': BookingsList
+   'bookings-table': BookingsTable
   },
   mounted(){
     this.fetchData()
