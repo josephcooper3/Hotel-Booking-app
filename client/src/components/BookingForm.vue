@@ -3,11 +3,11 @@
     <h3>Make a new booking</h3>
     <div>
       <label for="name">Name</label>
-      <input type="text" v-model="name">
+      <input type="text" v-model="name" required>
     </div>
     <div>
       <label for="email">e-mail</label>
-      <input type="text" v-model='email'>
+      <input type="text" v-model='email' required>
     </div>
     <div>
       <label for="checkedIn">Checked In?</label>
